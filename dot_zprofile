@@ -1,5 +1,2 @@
-
-# Added by `rbenv init` on Sun Sep  1 13:40:26 EDT 2024
-eval "$(rbenv init - --no-rehash zsh)"
-
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
+export OWKEY=db9724f3316e572610e2a642479e2c76

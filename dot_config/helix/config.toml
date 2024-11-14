@@ -1,2 +1,38 @@
 
 theme = "solarized_light"
+
+######## EDITOR ########
+[editor]  
+line-number="relative"
+color-modes=true
+cursorline=true 
+cursorcolumn=true
+bufferline="always"
+
+[editor.statusline]
+left = ["separator", "spacer", "mode", "spacer", "separator", "file-base-name", "separator", "spacer", "spinner"] 
+center= ["diagnostics","separator","spacer","position","separator", "spacer"]
+right= ["file-modification-indicator"]
+mode.normal = "NORMAL"
+mode.insert = "EDITING"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert="underline"
+select="hidden"
+
+[editor.gutters.line-numbers]
+min-width=1
+
+
+######## KEY MAPPING ########
+
+[keys.normal]
+# Unselect the line above
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+[keys.select]
+# Unselect the line above
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
