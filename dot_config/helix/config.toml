@@ -9,7 +9,7 @@ cursorline=true
 cursorcolumn=true
 bufferline="always"
 end-of-line-diagnostics = "hint"
-contiue-comments = false
+continue-comments = false
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
