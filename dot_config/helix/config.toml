@@ -1,5 +1,5 @@
 
-theme = "solarized_light"
+theme = "catppuccin_latte"
 
 ######## EDITOR ########
 [editor]  
@@ -8,6 +8,11 @@ color-modes=true
 cursorline=true 
 cursorcolumn=true
 bufferline="always"
+end-of-line-diagnostics = "hint"
+contiue-comments = false
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.statusline]
 left = ["separator", "spacer", "mode", "spacer", "separator", "file-base-name", "separator", "spacer", "spinner"] 
