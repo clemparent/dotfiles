@@ -5,3 +5,4 @@ args = ["up", "--method", "stdio"]
 [[language]]
 name = "sql"
 language-servers = [ "sql-language-server" ]
+formatter = { command= "sqlfluff lint" }
