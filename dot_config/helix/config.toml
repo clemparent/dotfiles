@@ -3,13 +3,13 @@ theme = "catppuccin_latte"
 
 ######## EDITOR ########
 [editor]  
-line-number="relative"
 color-modes=true
 cursorline=true 
 cursorcolumn=true
 bufferline="always"
 end-of-line-diagnostics = "hint"
 continue-comments = false
+jump-label-alphabet = "jfkdls;aurieowpqnvmcxz"
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
@@ -36,6 +36,16 @@ min-width=1
 # Unselect the line above
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
+# Bind `gw` function to enter key
+"ret" = "goto_word"
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
 
 [keys.select]
 # Unselect the line above

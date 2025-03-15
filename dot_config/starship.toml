@@ -1,0 +1,35 @@
+add_newline = false
+
+format = """
+  $directory\
+  $git_branch\
+  $git_state\
+  $git_status\
+  $character"""
+
+right_format = """
+  $time\
+  $fill\
+  $cmd_duration"""
+
+[directory]
+style = "fg:#179299 bold"
+truncation_length = 4
+
+[character]
+success_symbol = "[❯](#40a02b)"
+error_symbol = "[❯](#d20f39)"
+
+[time] 
+disabled = false
+time_format = "%r"
+style = "fg:#209fb5"
+format = '[󰥔 $time]($style)'
+
+[fill]
+symbol = "  "
+
+[cmd_duration]
+disabled = false
+style = "fg:#40a02b"
+format = '[ $duration]($style)'

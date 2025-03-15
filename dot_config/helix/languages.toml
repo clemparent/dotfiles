@@ -6,3 +6,11 @@ args = ["up", "--method", "stdio"]
 name = "sql"
 language-servers = [ "sql-language-server" ]
 formatter = { command= "sqlfluff lint" }
+
+[[language]]
+name = "groovy"
+language-servers = [ "groovy-language-server" ]
+formatter = { command = "prettier --write jenkinsfile" }
+
+[language-server.groovy-language-server]
+command = "java -jar ~/.config/helix/groovy-language-server/build/libs/groovy-language-server-all.jar"
