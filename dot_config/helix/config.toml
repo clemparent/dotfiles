@@ -1,5 +1,5 @@
 
-theme = "catppuccin_latte"
+theme = "catppuccin_frappe"
 
 ######## EDITOR ########
 [editor]  
@@ -29,7 +29,10 @@ select="hidden"
 [editor.gutters.line-numbers]
 min-width=1
 
-
+[editor.auto-save]
+focus-lost=true
+after-delay.enable=true
+after-delay.timeout=6000
 ######## KEY MAPPING ########
 
 [keys.normal]
@@ -38,6 +41,8 @@ A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
 # Bind `gw` function to enter key
 "ret" = "goto_word"
+
+# Yazi integration
 C-y = [
   ':sh rm -f /tmp/unique-file',
   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
@@ -51,3 +56,4 @@ C-y = [
 # Unselect the line above
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
+

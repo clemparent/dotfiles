@@ -33,3 +33,17 @@ symbol = "  "
 disabled = false
 style = "fg:#40a02b"
 format = '[ $duration]($style)'
+
+[git_status]
+conflicted = "${count}󰞇 "
+ahead = "${count} "
+behind = "${count} "
+untracked = "${count}󱧊 "
+stashed = "${count} "
+modified = "${count}󰷈 "
+staged = "${count}󱃕 "
+renamed = "${count}󱍓 "
+deleted = "${count}󰩺 "
+
+[git_branch]
+symbol = "🪵"

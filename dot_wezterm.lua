@@ -14,7 +14,7 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Catppuccin Latte'
+config.color_scheme = 'Catppuccin Frappe'
 
 -- Configure the RHS scroll bar
 config.enable_scroll_bar = true
@@ -38,8 +38,8 @@ config.window_background_opacity = .85
 config.default_cursor_style = 'BlinkingBlock'
 
 -- Initial window size and window decorators
-config.initial_rows = 48
-config.initial_cols = 140
+config.initial_rows = 60
+config.initial_cols = 200
 
 -- Status Bar event handling
 config.status_update_interval = 800

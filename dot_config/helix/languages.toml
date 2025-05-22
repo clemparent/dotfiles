@@ -14,3 +14,15 @@ formatter = { command = "prettier --write jenkinsfile" }
 
 [language-server.groovy-language-server]
 command = "java -jar ~/.config/helix/groovy-language-server/build/libs/groovy-language-server-all.jar"
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config]
+local = "goimports"
+completeUnimported = true
