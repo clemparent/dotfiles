@@ -107,6 +107,7 @@ export EDITOR="$VISUAL"
 # GOPATH Stuff
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPRIVATE=github.com/urbn
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -114,9 +115,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Helix
-export PATH="$HOME/.cargo/bin:$PATH"
-# Nightly build
-export HELIX_RUNTIME=~/helix-nightly/helix/runtime
+# export PATH="$HOME/.cargo/bin:$PATH"
+# # Nightly build
+# export HELIX_RUNTIME=~/helix-nightly/helix/runtime
 
 #official Helix
 #export HELIX_RUNTIME=~/helix/helix/runtime
@@ -143,3 +144,6 @@ if [ -f '/Users/cparent/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cparent
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/cparent/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+
+export GITHUB_SSH_KEY=$(cat ~/.ssh/id_ed25519)

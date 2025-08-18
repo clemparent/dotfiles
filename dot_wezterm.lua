@@ -29,9 +29,9 @@ config.font_size = 13.5
 config.line_height = 1.1
 
 -- Window Opacity
-config.macos_window_background_blur = 50
+config.macos_window_background_blur = 60
 config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
-config.window_background_opacity = .85
+config.window_background_opacity = .75
 
 
 -- Cursor setting
