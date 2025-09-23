@@ -26,3 +26,20 @@ command = "gopls"
 [language-server.gopls.config]
 local = "goimports"
 completeUnimported = true
+
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
