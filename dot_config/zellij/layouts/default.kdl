@@ -1,0 +1,93 @@
+layout {
+    default_tab_template {
+        children
+        pane size=2 borderless=true{
+            plugin location="file:~/.config/zellij/zjstatus/zjstatus.wasm" {
+                // Catppuccin Mocha Colors
+                color_bg "#585b70" // Surface2
+                color_fg "#cdd6f4" // Text
+                color_red "#f38ba8"
+                color_green "#a6e3a1"
+                color_blue "#89b4fa"
+                color_yellow "#f9e2af"
+                color_magenta "#f5c2e7" // Pink
+                color_orange "#fab387" // Peach
+                color_cyan "#89dceb" // Sky
+                color_black "#181825" // Mantle
+                color_white "#cdd6f4" // Text
+                color_subtext "#bac2de"
+
+                format_left   "{mode}#[bg=$bg] {tabs}"
+                format_center "{pipe_cwd}"
+                format_right  "{pipe_zjstatus_hints} {datetime}"
+                format_space  "#[bg=$bg]"
+                format_hide_on_overlength "false"
+                format_precedence "crl"
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#6C7086]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "true"
+
+                mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL#[bg=$bg,fg=$green]"
+                mode_locked        "#[bg=$red,fg=$bg,bold] LOCKED  #[bg=$bg,fg=$red]"
+                mode_resize        "#[bg=$black,fg=$bg,bold] RESIZE#[bg=$bg,fg=$black]"
+                mode_pane          "#[bg=$black,fg=$bg,bold] PANE#[bg=$bg,fg=$black]"
+                mode_tab           "#[bg=$black,fg=$bg,bold] TAB#[bg=$bg,fg=$black]"
+                mode_scroll        "#[bg=$black,fg=$bg,bold] SCROLL#[bg=$bg,fg=$black]"
+                mode_enter_search  "#[bg=$black,fg=$bg,bold] ENT-SEARCH#[bg=$bg,fg=$black]"
+                mode_search        "#[bg=$black,fg=$bg,bold] SEARCHARCH#[bg=$bg,fg=$black]"
+                mode_rename_tab    "#[bg=$black,fg=$bg,bold] RENAME-TAB#[bg=$bg,fg=$black]"
+                mode_rename_pane   "#[bg=$black,fg=$bg,bold] RENAME-PANE#[bg=$bg,fg=$black]"
+                mode_session       "#[bg=$black,fg=$bg,bold] SESSION#[bg=$bg,fg=$black]"
+                mode_move          "#[bg=$black,fg=$bg,bold] MOVE#[bg=$bg,fg=$black]"
+                mode_prompt        "#[bg=$black,fg=$bg,bold] PROMPT#[bg=$bg,fg=$black]"
+                mode_tmux          "#[bg=$magenta,fg=$bg,bold] TMUX#[bg=$bg,fg=#magenta]"
+
+                // formatting for inactive tabs
+                tab_normal              "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{floating_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_normal_fullscreen   "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_normal_sync         "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{sync_indicator}#[bg=$bg,fg=#363a4f,bold]"
+
+                // formatting for the current active tab
+                tab_active              "#[bg=$bg,fg=$orange]#[bg=$orange,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$orange,bold] {name}{floating_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_active_fullscreen   "#[bg=$bg,fg=$orange]#[bg=$orange,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$orange,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_active_sync         "#[bg=$bg,fg=$orange]#[bg=$orange,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$orange,bold] {name}{sync_indicator}#[bg=$bg,fg=#363a4f,bold]"
+
+                // separator between the tabs
+                tab_separator           "#[bg=$bg] "
+
+                // indicators
+                tab_sync_indicator       " "
+                tab_fullscreen_indicator " 󰊓"
+                tab_floating_indicator   " 󰹙"
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=blue] {stdout} "
+                command_git_branch_interval    "1"
+                command_git_branch_rendermode  "static"
+
+                datetime        "#[bg=$bg,fg=$subtext] {format} "
+                datetime_format "%a, %m/%d/%Y %I:%M %p"
+                datetime_timezone "America/New_York"
+
+                command_pwd_command    "pwd"
+                command_pwd_format     "#[fg=blue] {stdout} "
+                command_pwd_interval   "1"
+                command_pwd_rendermode "dynamic"
+
+
+                pipe_zjstatus_hints_format "#[bg=$bg]{output}"
+                pipe_cwd_format "#[bg=$bg]{output}"
+                                
+            }
+        }
+        // pane size=1 borderless=true {
+        //     plugin location="zellij:status-bar"
+        // }
+    }
+}
+
+

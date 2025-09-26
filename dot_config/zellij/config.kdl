@@ -7,25 +7,20 @@ keybinds clear-defaults=true {
         bind "Ctrl Space" { SwitchToMode "normal"; }
     }
     pane {
-        bind "left" { MoveFocus "left"; }
-        bind "down" { MoveFocus "down"; }
-        bind "up" { MoveFocus "up"; }
-        bind "right" { MoveFocus "right"; }
+        bind "h" "left" { MoveFocus "left"; SwitchToMode: "locked"; }
+        bind "j" "down" { MoveFocus "down"; SwitchToMode: "locked"; }
+        bind "k" "up" { MoveFocus "up"; SwitchToMode: "locked"; }
+        bind "l" "right" { MoveFocus "right"; SwitchToMode: "locked"; }
         bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
-        bind "d" { NewPane "down"; SwitchToMode "locked"; }
+        bind "s" { NewPane "down"; SwitchToMode "locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-        bind "h" { MoveFocus "left"; }
         bind "i" { TogglePanePinned; SwitchToMode "locked"; }
-        bind "j" { MoveFocus "down"; }
-        bind "k" { MoveFocus "up"; }
-        bind "l" { MoveFocus "right"; }
-        bind "n" { NewPane; SwitchToMode "locked"; }
         bind "p" { SwitchToMode "normal"; }
-        bind "r" { NewPane "right"; SwitchToMode "locked"; }
+        bind "v" { NewPane "right"; SwitchToMode "locked"; }
         bind "s" { NewPane "stacked"; SwitchToMode "locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
-        bind "x" { CloseFocus; SwitchToMode "locked"; }
+        bind "q" { CloseFocus; SwitchToMode "locked"; }
         bind "z" { TogglePaneFrames; SwitchToMode "locked"; }
         bind "tab" { SwitchFocus; }
     }
@@ -58,10 +53,10 @@ keybinds clear-defaults=true {
         bind "tab" { ToggleTab; }
     }
     resize {
-        bind "left" { Resize "Increase left"; }
-        bind "down" { Resize "Increase down"; }
-        bind "up" { Resize "Increase up"; }
-        bind "right" { Resize "Increase right"; }
+        bind "h" { Resize "Increase left"; }
+        bind "j" { Resize "Increase down"; }
+        bind "k" { Resize "Increase up"; }
+        bind "l" { Resize "Increase right"; }
         bind "+" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
         bind "=" { Resize "Increase"; }
@@ -76,10 +71,6 @@ keybinds clear-defaults=true {
         bind "r" { SwitchToMode "normal"; }
     }
     move {
-        bind "left" { MovePane "left"; }
-        bind "down" { MovePane "down"; }
-        bind "up" { MovePane "up"; }
-        bind "right" { MovePane "right"; }
         bind "h" { MovePane "left"; }
         bind "j" { MovePane "down"; }
         bind "k" { MovePane "up"; }
@@ -149,22 +140,19 @@ keybinds clear-defaults=true {
         }
     }
     shared_among "normal" "locked" {
-        bind "Alt left" { MoveFocusOrTab "left"; }
-        bind "Alt down" { MoveFocus "down"; }
-        bind "Alt up" { MoveFocus "up"; }
-        bind "Alt right" { MoveFocusOrTab "right"; }
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
+        bind "Alt Space h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
-        bind "Alt n" { NewPane; }
+        bind "Alt Space j" { MoveFocus "down"; }
+        bind "Alt Space k" { MoveFocus "up"; }
+        bind "Alt Space l" { MoveFocusOrTab "right"; }
+        bind "Alt Space v" { NewPane "right"; SwitchToMode "locked"; }
+        bind "Alt Space s" { NewPane "down"; SwitchToMode "locked"; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
@@ -241,11 +229,33 @@ plugins {
     }
     plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"
-    status-bar location="zellij:status-bar"
+    status-bar location="zellij:status-bar"{
+        enabled true
+        disable-segments {
+            "mode";
+            "tabs";
+            "session";
+            "time";
+            "hostname";
+            "user";
+        }
+    }
     strider location="zellij:strider"
-    tab-bar location="zellij:tab-bar"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
+    tab-bar location="zellij:tab-bar"{
+        enabled false
+    } 
+    welcome-screen location="zellij:session-manager" 
+    zjstatus-hints location="file:/Users/cparent/.config/zellij/zjstatus/zjstatus-hints.wasm" {
+        // Maximum number of characters to display
+        max_length 0 // 0 = unlimited
+        // String to append when truncated
+        overflow_str "..." // default
+        // Name of the pipe for zjstatus integration
+        pipe_name "zjstatus_hints" // default
+        // Hide hints in base mode (a.k.a. default mode)
+        // E.g. if you have set default_mode to "locked", then
+        // you can hide hints in the locked mode by setting this to true
+        hide_in_base_mode false // default
     }
 }
 
@@ -253,10 +263,10 @@ plugins {
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+    zjstatus-hints
 }
 ui {
     pane_frames {
-        rounded_corners true
         hide_session_name true
     }
 }
@@ -293,7 +303,7 @@ default_mode "locked"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "compact"
+default_layout "default"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)

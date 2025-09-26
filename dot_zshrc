@@ -72,6 +72,11 @@ zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
+#Zellij auto-start
+eval "$(zellij setup --generate-auto-start zsh)"
+export ZELLIJ_AUTO_ATTACH=false
+export ZELLIJ_AUTO_EXIT=false
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -114,6 +119,56 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Prompt PWD function for the zellij pipe i'm using next
+prompt_pwd() {
+  local max_length=30
+  local path="${PWD/#$HOME/~}"    # replace $HOME with ~
+
+  # If short enough, print as-is
+  if (( ${#path} <= max_length )); then
+    echo "$path"
+    return
+  fi
+
+  # split on '/'
+  local -a parts shortened
+  parts=("${(s:/:)path}")
+  local n=${#parts[@]}
+  local i part
+
+  for (( i=1; i<=n; i++ )); do
+    part=${parts[i]}
+    if (( i == n )); then
+      # keep last (current) directory full
+      shortened+=("$part")
+    elif [[ -z $part ]]; then
+      # leading empty piece -> preserves leading '/'
+      shortened+=("")
+    elif [[ $part == "~" ]]; then
+      shortened+=("~")
+    else
+      # collapse intermediate directories to their first character
+      shortened+=("${part:0:1}")
+    fi
+  done
+
+  # join with '/'
+  echo "${(j:/:)shortened}"
+}
+
+
+# Zellij Pipe to display PWD
+function zellij_update_cwd() {
+    if [[ -n "$ZELLIJ_SESSION_NAME" ]]; then
+    	zellij pipe zjstatus::pipe::pipe_cwd::"$(prompt_pwd)"
+    fi
+}
+
+# Trigger the zellij pipe when directory is changed
+autoload -U add-zsh-hook
+add-zsh-hook chpwd zellij_update_cwd
+# Make sure it's run at startup
+zellij_update_cwd
 
 # Yazi
 function y() {
@@ -137,3 +192,4 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 
 export GITHUB_SSH_KEY=$(cat ~/.ssh/id_ed25519)
+
