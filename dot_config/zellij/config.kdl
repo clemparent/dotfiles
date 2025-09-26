@@ -7,10 +7,10 @@ keybinds clear-defaults=true {
         bind "Ctrl Space" { SwitchToMode "normal"; }
     }
     pane {
-        bind "h" "left" { MoveFocus "left"; SwitchToMode: "locked"; }
-        bind "j" "down" { MoveFocus "down"; SwitchToMode: "locked"; }
-        bind "k" "up" { MoveFocus "up"; SwitchToMode: "locked"; }
-        bind "l" "right" { MoveFocus "right"; SwitchToMode: "locked"; }
+        bind "h" "left" { MoveFocus "left"; SwitchToMode "locked"; }
+        bind "j" "down" { MoveFocus "down"; SwitchToMode "locked"; }
+        bind "k" "up" { MoveFocus "up"; SwitchToMode "locked"; }
+        bind "l" "right" { MoveFocus "right"; SwitchToMode "locked"; }
         bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
         bind "s" { NewPane "down"; SwitchToMode "locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
@@ -146,13 +146,13 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt Space h" { MoveFocusOrTab "left"; }
+        bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
-        bind "Alt Space j" { MoveFocus "down"; }
-        bind "Alt Space k" { MoveFocus "up"; }
-        bind "Alt Space l" { MoveFocusOrTab "right"; }
-        bind "Alt Space v" { NewPane "right"; SwitchToMode "locked"; }
-        bind "Alt Space s" { NewPane "down"; SwitchToMode "locked"; }
+        bind "Alt j" { MoveFocus "down"; }
+        bind "Alt k" { MoveFocus "up"; }
+        bind "Alt l" { MoveFocusOrTab "right"; }
+        bind "Alt v" { NewPane "right"; SwitchToMode "locked"; }
+        bind "Alt s" { NewPane "down"; SwitchToMode "locked"; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
@@ -255,7 +255,7 @@ plugins {
         // Hide hints in base mode (a.k.a. default mode)
         // E.g. if you have set default_mode to "locked", then
         // you can hide hints in the locked mode by setting this to true
-        hide_in_base_mode false // default
+        hide_in_base_mode true
     }
 }
 
