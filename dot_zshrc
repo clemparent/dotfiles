@@ -26,7 +26,7 @@ ZSH_THEME="mortalscumbag"
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -46,7 +46,7 @@ ZSH_THEME="mortalscumbag"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -72,30 +72,37 @@ zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
-#Zellij auto-start
-eval "$(zellij setup --generate-auto-start zsh)"
-export ZELLIJ_AUTO_ATTACH=false
-export ZELLIJ_AUTO_EXIT=false
+# Starship
+eval "$(starship init zsh)"
 
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION"  ]] && [[ "$TERM_PROGRAM" != "vscode" ]]  ; then
+  if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+      zellij attach -c
+  else
+  	eval "$(zellij setup --generate-auto-start zsh)"
+  	eval "$(zellij setup --generate-completion zsh)"
+  fi
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+  if [[ "$ZELLIJ_AUTO_EXIT" == "TRUE" ]]; then
+      exit
+  fi
+fi
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+function starship_short_path() {
+  starship prompt | awk '{gsub(/%{[^}]*}/,""); sub(/[[:space:]]*[❯›>] *$/, ""); print}'
+}
+# Zellij Pipe to display PWD
+function zellij_update_cwd() {
+  if [[ -n "$ZELLIJ_SESSION_NAME" ]]; then
+  	zellij pipe zjstatus::pipe::pipe_cwd::"$(starship_short_path)"
+  fi
+}
+chpwd_functions+=(zellij_update_cwd)
+zellij_update_cwd
 
 export VISUAL=hx
 export EDITOR="$VISUAL"
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
@@ -119,56 +126,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Prompt PWD function for the zellij pipe i'm using next
-prompt_pwd() {
-  local max_length=30
-  local path="${PWD/#$HOME/~}"    # replace $HOME with ~
-
-  # If short enough, print as-is
-  if (( ${#path} <= max_length )); then
-    echo "$path"
-    return
-  fi
-
-  # split on '/'
-  local -a parts shortened
-  parts=("${(s:/:)path}")
-  local n=${#parts[@]}
-  local i part
-
-  for (( i=1; i<=n; i++ )); do
-    part=${parts[i]}
-    if (( i == n )); then
-      # keep last (current) directory full
-      shortened+=("$part")
-    elif [[ -z $part ]]; then
-      # leading empty piece -> preserves leading '/'
-      shortened+=("")
-    elif [[ $part == "~" ]]; then
-      shortened+=("~")
-    else
-      # collapse intermediate directories to their first character
-      shortened+=("${part:0:1}")
-    fi
-  done
-
-  # join with '/'
-  echo "${(j:/:)shortened}"
-}
-
-
-# Zellij Pipe to display PWD
-function zellij_update_cwd() {
-    if [[ -n "$ZELLIJ_SESSION_NAME" ]]; then
-    	zellij pipe zjstatus::pipe::pipe_cwd::"$(prompt_pwd)"
-    fi
-}
-
-# Trigger the zellij pipe when directory is changed
-autoload -U add-zsh-hook
-add-zsh-hook chpwd zellij_update_cwd
-# Make sure it's run at startup
-zellij_update_cwd
 
 # Yazi
 function y() {
@@ -179,9 +136,6 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
-# Starship
-eval "$(starship init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/cparent/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/path.zsh.inc'; fi

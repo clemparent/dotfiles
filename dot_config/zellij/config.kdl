@@ -155,6 +155,7 @@ keybinds clear-defaults=true {
         bind "Alt s" { NewPane "down"; SwitchToMode "locked"; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt q" { CloseFocus; SwitchToMode "locked"; }
         bind "Alt Shift p" { ToggleGroupMarking; }
     }
     shared_except "locked" "renametab" "renamepane" {
@@ -346,7 +347,7 @@ default_layout "default"
 //   - detach (Default)
 //   - quit
 // 
-// on_force_close "quit"
+on_force_close "quit"
  
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back

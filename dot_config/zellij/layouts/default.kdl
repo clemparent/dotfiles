@@ -16,6 +16,7 @@ layout {
                 color_black "#181825" // Mantle
                 color_white "#cdd6f4" // Text
                 color_subtext "#bac2de"
+                color_overlay "#7c7f93"
 
                 format_left   "{mode}#[bg=$bg] {tabs}"
                 format_center "{pipe_cwd}"
@@ -47,14 +48,14 @@ layout {
                 mode_tmux          "#[bg=$magenta,fg=$bg,bold] TMUX#[bg=$bg,fg=#magenta]"
 
                 // formatting for inactive tabs
-                tab_normal              "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{floating_indicator}#[bg=$bg,fg=#363a4f,bold]"
-                tab_normal_fullscreen   "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=#363a4f,bold]"
-                tab_normal_sync         "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{sync_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_normal              "#[bg=$bg,fg=$overlay]#[bg=$overlay,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$overlay,bold] {name}{floating_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_normal_fullscreen   "#[bg=$bg,fg=$overlay]#[bg=$overlay,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$overlay,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_normal_sync         "#[bg=$bg,fg=$overlay]#[bg=$overlay,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$overlay,bold] {name}{sync_indicator}#[bg=$bg,fg=#363a4f,bold]"
 
                 // formatting for the current active tab
-                tab_active              "#[bg=$bg,fg=$orange]#[bg=$orange,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$orange,bold] {name}{floating_indicator}#[bg=$bg,fg=#363a4f,bold]"
-                tab_active_fullscreen   "#[bg=$bg,fg=$orange]#[bg=$orange,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$orange,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=#363a4f,bold]"
-                tab_active_sync         "#[bg=$bg,fg=$orange]#[bg=$orange,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$orange,bold] {name}{sync_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_active              "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{floating_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_active_fullscreen   "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=#363a4f,bold]"
+                tab_active_sync         "#[bg=$bg,fg=$blue]#[bg=$blue,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=$blue,bold] {name}{sync_indicator}#[bg=$bg,fg=#363a4f,bold]"
 
                 // separator between the tabs
                 tab_separator           "#[bg=$bg] "
