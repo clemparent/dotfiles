@@ -15,7 +15,7 @@ theme = catppuccin-frappe.conf
 
 ### FONT STUFF
 font-thicken = true
-font-family = Hack
+font-family = JuliaMono
 
 ### WINDOW STUFF
 background-opacity = 0.92
