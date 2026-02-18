@@ -42,21 +42,6 @@ export EDITOR="$VISUAL"
 # Starship
 eval "$(starship init zsh)"
 
-# Start zellij
-export ZELLIJ_AUTO_ATTACH=true
-if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION"  ]] && [[ "$TERM_PROGRAM" != "vscode" ]]  ; then
-  if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-      zellij attach -c
-  else
-  	eval "$(zellij setup --generate-auto-start zsh)"
-  	eval "$(zellij setup --generate-completion zsh)"
-  fi
-
-  if [[ "$ZELLIJ_AUTO_EXIT" == "TRUE" ]]; then
-      exit
-  fi
-fi
-
 # Optimize completion
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
@@ -65,9 +50,6 @@ else
     compinit -C
 fi
 
-# GOPATH Stuff
-export GOPATH=$HOME/go
-export GOPRIVATE=github.com/urbn
 
 # Yazi
 function y() {
@@ -88,3 +70,20 @@ if [ -f '/Users/cparent/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/c
 # Misc. vars
 export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 export GITHUB_SSH_KEY=$(cat ~/.ssh/id_ed25519)
+
+# Start zellij
+export ZELLIJ_AUTO_ATTACH=true
+if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION"  ]] && [[ "$TERM_PROGRAM" != "vscode" ]]  ; then
+  if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+      zellij attach -c
+  else
+  	eval "$(zellij setup --generate-auto-start zsh)"
+  	eval "$(zellij setup --generate-completion zsh)"
+  fi
+
+  if [[ "$ZELLIJ_AUTO_EXIT" == "TRUE" ]]; then
+      exit
+  fi
+fi
+
+

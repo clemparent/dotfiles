@@ -18,13 +18,15 @@ command = "java -jar ~/.config/helix/groovy-language-server/build/libs/groovy-la
 [[language]]
 name = "go"
 auto-format = true
-formatter = { command = "goimports" }
+formatter = { command = "gofumpt" }
 
 [language-server.gopls]
 command = "gopls"
+args = ["-logfile=/tmp/gopls.log",  "serve"]
 
 [language-server.gopls.config]
-local = "goimports"
+"ui.diagnostic.staticcheck" = true
+"formatting.gofumpt" = true
 completeUnimported = true
 
 [[language]]
