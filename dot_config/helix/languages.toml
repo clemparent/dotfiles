@@ -8,25 +8,14 @@ language-servers = [ "sql-language-server" ]
 formatter = { command= "sqlfluff lint" }
 
 [[language]]
-name = "groovy"
-language-servers = [ "groovy-language-server" ]
-formatter = { command = "prettier --write jenkinsfile" }
-
-[language-server.groovy-language-server]
-command = "java -jar ~/.config/helix/groovy-language-server/build/libs/groovy-language-server-all.jar"
-
-[[language]]
 name = "go"
 auto-format = true
-formatter = { command = "gofumpt" }
-
-[language-server.gopls]
-command = "gopls"
-args = ["-logfile=/tmp/gopls.log",  "serve"]
+formatter = { command = "goimports" }
+language-servers = ["gopls"]
 
 [language-server.gopls.config]
-"ui.diagnostic.staticcheck" = true
 "formatting.gofumpt" = true
+"formatting.local" = "github.com/urbn/"
 completeUnimported = true
 
 [[language]]
@@ -45,3 +34,9 @@ args = ["--ignore", "E501"]
 [language.formatter]
 command = "black"
 args = ["--line-length", "88", "--quiet", "-"]
+
+[[language]]
+name = "groovy"
+file-types = ["groovy", "gradle", "Jenkinsfile"]
+formatter = { command = "npm-groovy-lint", args = ["--format", "-"] }
+auto-format = true

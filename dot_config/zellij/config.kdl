@@ -322,7 +322,7 @@ default_layout "default"
 //   - true (default, enabled)
 //   - false
 // 
-// pane_frames false
+pane_frames false
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -348,7 +348,7 @@ on_force_close "quit"
 // Valid values: positive integers
 // Default value: 10000
 // 
-// scroll_buffer_size 10000
+scroll_buffer_size 5000
  
 // Provide a command to execute when copying text. The text will be piped to
 // the stdin of the program to perform the copy. This can be used with
@@ -385,13 +385,13 @@ on_force_close "quit"
 // otherwise this will error if such a session exists.
 // Default: <RANDOM>
 // 
-// session_name "My singleton session"
+// session_name "main"
  
 // When `session_name` is provided, attaches to that session
 // if it is already running or creates it otherwise.
 // Default: false
 // 
-attach_to_session false
+// attach_to_session true
  
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:

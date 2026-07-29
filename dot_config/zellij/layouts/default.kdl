@@ -29,7 +29,7 @@ layout {
                 border_format   "#[fg=#6C7086]{char}"
                 border_position "top"
 
-                hide_frame_for_single_pane "true"
+                hide_frame_for_single_pane "false"
 
                 mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL#[bg=$bg,fg=$green]"
                 mode_locked        "#[bg=$red,fg=$bg,bold] LOCKED  #[bg=$bg,fg=$red]"
@@ -67,12 +67,6 @@ layout {
                 datetime        "#[bg=$bg,fg=$subtext] {format} "
                 datetime_format "%a, %m/%d/%Y %I:%M %p"
                 datetime_timezone "America/New_York"
-
-                command_pwd_command    "pwd"
-                command_pwd_format     "#[fg=blue] {stdout} "
-                command_pwd_interval   "1"
-                command_pwd_rendermode "dynamic"
-
 
                 pipe_zjstatus_hints_format "#[bg=$bg]{output}"
                                 

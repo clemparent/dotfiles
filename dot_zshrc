@@ -5,7 +5,8 @@ local brew_path="/opt/homebrew/bin:/opt/homebrew/sbin"
 local brew_ruby_path="/opt/homebrew/opt/ruby/bin"
 local user_bins="$HOME/bin:$HOME/.local/bin:/usr/local/bin"
 local go_bins="$GOROOT/bin:$GOPATH/bin"
-export PATH="$brew_ruby_path:$brew_path:$user_bins:$PATH:$go_bins"
+local gcloud_bin="$HOME/google-cloud-sdk/bin/"
+export PATH="$brew_ruby_path:$brew_path:$user_bins:$gcloud_bin:$PATH:$go_bins"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -25,6 +26,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 zstyle ':omz:plugins:nvm' lazy yes
 plugins=(
 fzf-tab
+gcloud
 nvm
 zsh-syntax-highlighting
 )
@@ -42,15 +44,6 @@ export EDITOR="$VISUAL"
 # Starship
 eval "$(starship init zsh)"
 
-# Optimize completion
-autoload -Uz compinit
-if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
-    compinit
-else
-    compinit -C
-fi
-
-
 # Yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -61,29 +54,37 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/cparent/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/cparent/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/completion.zsh.inc'; fi
+# Optimize completion
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi
+
+
 
 # Misc. vars
 export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 export GITHUB_SSH_KEY=$(cat ~/.ssh/id_ed25519)
 
 # Start zellij
-export ZELLIJ_AUTO_ATTACH=true
-if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION"  ]] && [[ "$TERM_PROGRAM" != "vscode" ]]  ; then
-  if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-      zellij attach -c
-  else
-  	eval "$(zellij setup --generate-auto-start zsh)"
-  	eval "$(zellij setup --generate-completion zsh)"
+if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION" ]] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  if [[ -n "$CLAUDECODE" ]]; then
+    return  # Claude Code, no zellij
   fi
 
-  if [[ "$ZELLIJ_AUTO_EXIT" == "TRUE" ]]; then
-      exit
+  if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    zellij attach -c main
+  else
+    zellij attach -c "scratch-$$"
   fi
 fi
 
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/cparent/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/cparent/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/completion.zsh.inc'; fi

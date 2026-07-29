@@ -17,6 +17,9 @@ theme = catppuccin-frappe.conf
 font-thicken = true
 font-family = JuliaMono
 
+### SHELL
+shell-integration = zsh
+
 ### WINDOW STUFF
 background-opacity = 0.92
 background-blur = true
@@ -25,8 +28,7 @@ cursor-style = block
 macos-titlebar-proxy-icon = hidden
 macos-window-buttons = hidden
 title = "👻"
-window-height = 65
-window-width = 215
+maximize = true
 
 ### CUSTOM MACOS ICON
 macos-icon = custom
