@@ -1,7 +1,16 @@
 {
   "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "ccstatusline",
+    "padding": 0,
+    "refreshInterval": 1
+  },
   "enabledPlugins": {
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -19,8 +28,7 @@
   },
   "effortLevel": "high",
   "theme": "auto",
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"/Users/cparent/.claude/plugins/cache/caveman/caveman/0d95a81d35a9/src/hooks/caveman-statusline.sh\""
-  }
+  "preferredNotifChannel": "ghostty",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }

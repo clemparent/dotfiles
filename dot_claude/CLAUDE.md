@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+Do not speak in litotes and avoid the use of irony.
+
 # i-have-adhd
 
 The reader has ADHD. Output is not just brief. It is shaped so an ADHD brain can act on it.

@@ -76,7 +76,11 @@ if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION" ]] && [[ "$TERM_PROGRAM" != "vs
   fi
 
   if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
-    zellij attach -c main
+    if [[ -z "$ZELLIJ" && -z "$AGENT_TERM" ]]; then
+      eval "$(zellij setup --generate-auto-start zsh)"
+    else
+      zellij attach -c main
+    fi
   else
     zellij attach -c "scratch-$$"
   fi
@@ -88,3 +92,5 @@ if [ -f '/Users/cparent/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cparent
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/cparent/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cparent/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias cdobs='cd /Users/cparent/Library/Mobile\ Documents/com~apple~CloudDocs/Obsidian/Obsidian\ Vault'
