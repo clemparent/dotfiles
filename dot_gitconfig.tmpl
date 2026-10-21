@@ -1,0 +1,18 @@
+[core]
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+	editor = code --wait
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Clem Parent
+	email = cparent@urbn.com
+[init]
+	defaultBranch = main
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+[pager]
+	diff = diffnav

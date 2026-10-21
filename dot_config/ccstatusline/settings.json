@@ -1,0 +1,86 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": "cyan",
+        "rawValue": true
+      },
+      {
+        "id": "2",
+        "type": "thinking-effort",
+        "rawValue": true
+      },
+      {
+        "id": "3",
+        "type": "session-clock",
+        "color": "brightBlack",
+        "metadata": {
+          "display": "slider-only",
+          "invert": "true"
+        },
+        "rawValue": true
+      },
+      {
+        "id": "5",
+        "type": "session-cost",
+        "color": "magenta",
+        "rawValue": true
+      },
+      {
+        "id": "a6d5cafe-c1d5-4404-a5ba-0d8773b364f1",
+        "type": "current-working-dir",
+        "metadata": {
+          "fishStyle": "true"
+        },
+        "rawValue": true
+      },
+      {
+        "id": "8a56e64d-7145-4493-b18e-4dbc558189d1",
+        "type": "tokens-input",
+        "backgroundColor": "bgCyan"
+      },
+      {
+        "id": "d37b7a8d-6c01-41a5-9969-2a8a9b9b0111",
+        "type": "tokens-output",
+        "backgroundColor": "bgWhite"
+      },
+      {
+        "id": "f14f97cf-dd4e-48e4-b8be-49cd960ecb2d",
+        "type": "tokens-total",
+        "backgroundColor": "bgBrightCyan"
+      }
+    ],
+    [],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPadding": " ",
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "theme": "nord-aurora",
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  },
+  "installation": {
+    "method": "pinned",
+    "installedVersion": "2.2.27"
+  }
+}

@@ -20,13 +20,22 @@ completeUnimported = true
 
 [[language]]
 name = "python"
-language-servers = [ "pyright", "ruff" ]
+language-servers = [
+  {name = "pyright"},
+  {name = "ruff"}
+  ]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
 
 [language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
+typeCheckingMode = "off"
+extraPaths = ["/home/clem/.cache/pydeps/platform-services-test"]
 
 [language-server.ruff]
-command = "ruff-lsp"
+command = "ruff"
+args = ["server"]
 
 [language-server.ruff.config.settings]
 args = ["--ignore", "E501"]
