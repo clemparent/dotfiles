@@ -1,0 +1,180 @@
+tap "charmbracelet/tap"
+tap "hashicorp/tap"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
+tap "warrensbox/tap"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3", link: true
+# Cryptographic recipes and primitives for Python
+brew "cryptography"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
+# New way of working with Protocol Buffers
+brew "buf"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Cross-platform make
+brew "cmake"
+# Linux virtual machines
+brew "lima"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima", restart_service: :changed
+# Git diff pager based on delta but with a file tree
+brew "diffnav"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
+# Isolated development environments using Docker
+brew "docker-compose"
+# GNU Emacs text editor
+brew "emacs", restart_service: :changed
+# XML 1.0 parser
+brew "expat"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Fast and Lightweight Logs and Metrics processor
+brew "fluent-bit"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
+# GitHub command-line tool
+brew "gh"
+# Render markdown on the CLI
+brew "glow"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
+# Database migrations CLI tool
+brew "golang-migrate"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# Post-modern modal text editor
+brew "helix"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# HTTP load generator, ApacheBench (ab) replacement
+brew "hey"
+# Improved top (interactive process viewer)
+brew "htop"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Cross-platform TUI database management tool
+brew "lazysql"
+# Utility for directing compilation
+brew "make"
+# Mock code autogenerator for Golang
+brew "mockery"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "mongosh"
+# Atlas CLI enables you to manage your MongoDB Atlas
+brew "mongodb-atlas-cli"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Object-relational database system
+brew "postgresql@14", restart_service: :changed
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Pretty, minimal and fast ZSH prompt
+brew "pure"
+# Static type checker for Python
+brew "pyright"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# SVG rendering tool and library
+brew "resvg"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Powerful, clean, object-oriented scripting language
+brew "ruby", link: false
+# Extremely fast Python linter, written in Rust
+brew "ruff"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Export Slack data without admin privileges
+brew "slackdump"
+# SQL linter and auto-formatter for Humans
+brew "sqlfluff"
+# Cross-shell prompt for astronauts
+brew "starship"
+# User interface to the TELNET protocol
+brew "telnet"
+# Terraform version manager inspired by rbenv
+brew "tfenv"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# Display management tool
+cask "betterdisplay"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+# Markdown editor
+cask "markedit"
+# Shows the next meeting in the menu bar
+cask "meetingbar"
+# Toolbox companion for QMK Firmware
+go "github.com/air-verse/air"
+go "github.com/go-delve/delve/cmd/dlv"
+go "golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment"
+go "github.com/ramya-rao-a/go-outline"
+go "golang.org/dl/go1.20"
+go "github.com/fzipp/gocyclo/cmd/gocyclo"
+go "github.com/rogpeppe/godef"
+go "mvdan.cc/gofumpt"
+go "golang.org/x/tools/cmd/goimports"
+go "golang.org/x/lint/golint"
+go "github.com/alecthomas/gometalinter"
+go "golang.org/x/tools/gopls"
+go "github.com/gojp/goreportcard/cmd/goreportcard-cli"
+go "github.com/rakyll/hey"
+go "github.com/gordonklaus/ineffassign"
+go "github.com/client9/misspell/cmd/misspell"
+go "google.golang.org/protobuf/cmd/protoc-gen-go"
+go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+go "honnef.co/go/tools/cmd/staticcheck"
+go "github.com/chrisdaly3/tmpchk"
+cargo "helix-term"
+cargo "zellij"
+npm "@runcomfy/cli"
+npm "ccstatusline"
+npm "corepack"
+npm "npm-groovy-lint"
+npm "pure-prompt"
+npm "ui-ux-pro-max-cli"
