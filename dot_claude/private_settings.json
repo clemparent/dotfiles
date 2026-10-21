@@ -1,5 +1,5 @@
 {
-  "model": "sonnet",
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "ccstatusline",
@@ -7,10 +7,18 @@
     "refreshInterval": 1
   },
   "enabledPlugins": {
-    "ponytail@ponytail": true,
+    "ponytail@ponytail": false,
     "pyright-lsp@claude-plugins-official": true,
     "remember@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "cc-skills-golang@samber": false,
+    "gopls-lsp@claude-plugins-official": true,
+    "python-development@claude-code-workflows": true,
+    "frontend-design@claude-plugins-official": true,
+    "runcomfy@runcomfy": true,
+    "reactive-resume@reactive-resume": true,
+    "job-apply@neonwatty-plugins": true,
+    "diagram-design@diagram-design": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -24,10 +32,53 @@
         "source": "git",
         "url": "https://github.com/JuliusBrussee/caveman.git"
       }
+    },
+    "samber": {
+      "source": {
+        "source": "github",
+        "repo": "samber/cc"
+      }
+    },
+    "claude-code-workflows": {
+      "source": {
+        "source": "github",
+        "repo": "wshobson/agents"
+      }
+    },
+    "runcomfy": {
+      "source": {
+        "source": "github",
+        "repo": "runcomfy-com/skills"
+      }
+    },
+    "reactive-resume": {
+      "source": {
+        "source": "github",
+        "repo": "reactive-resume/reactive-resume"
+      }
+    },
+    "neonwatty-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "neonwatty/job-apply-plugin"
+      }
+    },
+    "diagram-design": {
+      "source": {
+        "source": "github",
+        "repo": "cathrynlavery/diagram-design"
+      }
     }
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "promptSuggestionEnabled": false,
   "theme": "auto",
+  "verbose": false,
   "preferredNotifChannel": "ghostty",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true
