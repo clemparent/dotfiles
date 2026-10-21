@@ -1,5 +1,6 @@
 dot_zshrc.backup
-dot_config/ghostty/icons
+dot_config/ghostty/icons/*
+!dot_config/ghostty/icons/ghostty-catppuccin-macchiato.icns
 dot_config/ghostty/dot_DS_Store
 dot_config/zellij/config.kdl.*
 dot_config/zellij/zjstatus
