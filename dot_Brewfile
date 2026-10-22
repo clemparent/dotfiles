@@ -1,9 +1,6 @@
 tap "charmbracelet/tap"
 tap "hashicorp/tap"
-tap "homebrew/services"
 tap "jesseduffield/lazygit"
-tap "osx-cross/arm"
-tap "osx-cross/avr"
 tap "warrensbox/tap"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3", link: true
@@ -19,8 +16,8 @@ brew "ansible"
 brew "antidote"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
-# Microsoft Azure CLI 2.0
-brew "azure-cli"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # New way of working with Protocol Buffers
 brew "buf"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -96,17 +93,12 @@ brew "pipx"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
-brew "postgresql@14", restart_service: :changed
+brew "postgresql@18", link: true, restart_service: :changed
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Pretty, minimal and fast ZSH prompt
-brew "pure"
 # Static type checker for Python
 brew "pyright"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # SVG rendering tool and library
@@ -139,6 +131,8 @@ brew "zoxide"
 brew "zsh-completions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Microsoft Azure CLI 2.0
+cask "azure-cli"
 # Display management tool
 cask "betterdisplay"
 # Terminal-based AI coding assistant
@@ -149,7 +143,6 @@ cask "font-hack-nerd-font"
 cask "markedit"
 # Shows the next meeting in the menu bar
 cask "meetingbar"
-# Toolbox companion for QMK Firmware
 go "github.com/air-verse/air"
 go "github.com/go-delve/delve/cmd/dlv"
 go "golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment"
@@ -176,5 +169,4 @@ npm "@runcomfy/cli"
 npm "ccstatusline"
 npm "corepack"
 npm "npm-groovy-lint"
-npm "pure-prompt"
 npm "ui-ux-pro-max-cli"
