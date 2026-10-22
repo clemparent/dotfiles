@@ -1,0 +1,13 @@
+export GREENLIGHT_DB_DSN='{{ (bitwardenFields "item" "zprofile").GREENLIGHT_DB_DSN.value }}'
+export OWKEY='{{ (bitwardenFields "item" "zprofile").OWKEY.value }}'
+export STER_DB_DSN='{{ (bitwardenFields "item" "zprofile").STER_DB_DSN.value }}'
+export STER_JENKINS_KEY='{{ (bitwardenFields "item" "zprofile").STER_JENKINS_KEY.value }}'
+export LOCAL_JENKINS_URL='http://pi.local:4040/'
+export LOCAL_JENKINS_AUTH='{{ (bitwardenFields "item" "zprofile").LOCAL_JENKINS_AUTH.value }}'
+export STER_GITLAB_KEY='{{ (bitwardenFields "item" "zprofile").STER_GITLAB_KEY.value }}'
+# export GOOGLE_APPLICATION_CREDENTIALS="/opt/gcp/ster-service.json"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/cparent/.config/gcloud/application_default_credentials.json"
+export GOOGLE_API_KEY='{{ (bitwardenFields "item" "zprofile").GOOGLE_API_KEY.value }}'
+export GEMINI_API_KEY='{{ (bitwardenFields "item" "zprofile").GEMINI_API_KEY.value }}'
+export NR_KEY='{{ (bitwardenFields "item" "zprofile").NR_KEY.value }}'
+export CC_GH_PAT='{{ (bitwardenFields "item" "zprofile").CC_GH_PAT.value }}'
