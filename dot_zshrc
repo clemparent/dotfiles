@@ -29,11 +29,8 @@ plugins=(
 fzf-tab
 gcloud
 nvm
-zsh-autosuggestions
 zsh-syntax-highlighting
 )
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
-ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # omz
 source $ZSH/oh-my-zsh.sh

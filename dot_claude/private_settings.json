@@ -18,7 +18,8 @@
     "runcomfy@runcomfy": true,
     "reactive-resume@reactive-resume": true,
     "job-apply@neonwatty-plugins": true,
-    "diagram-design@diagram-design": true
+    "diagram-design@diagram-design": true,
+    "mattpocock-skills@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
